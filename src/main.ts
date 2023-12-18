@@ -1,6 +1,11 @@
 const form = document.querySelector('#generate-form') as HTMLFormElement;
 const iframe = document.getElementById('generatedCode') as HTMLFormElement;
-const code = "Le code HTML récupéré depuis l'API";
+const code = chatCompletions.choices[0].messages.content;
+
+if (!code){
+    alert('Erreur: Aucun code généré');
+    return;
+}
 iframe.srcdoc = `<!DOCTYPE html>
 <html lang="en">
   <head>
